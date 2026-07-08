@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<borgRwConfig>
+    <modelFile>C:/GitHub/Eldorado-Utility-Planning-Model/Eldorado.Public.V1.mdl</modelFile>
+    <rwExec>C:/CADSWES/RiverWare 9.6.3/RiverWare.exe</rwExec>
+    <populationSize>100</populationSize>
+    <maxEvaluations>1000</maxEvaluations>
+    <maxConsecEvalFailures>4</maxConsecEvalFailures>
+    <randomSeed>5489</randomSeed>
+    <rclScript>FunctionEvaluation.rcl</rclScript>
+    <generateRclScript>true</generateRclScript>
+    <generateDmiControlFiles>true</generateDmiControlFiles>
+    <borgToRwControlFile>DecLevInput.ctl</borgToRwControlFile>
+    <rwToBorgControlFile></rwToBorgControlFile>
+    <runTypeIsMRM>false</runTypeIsMRM>
+    <borgToRwDmi>DecLeverInput</borgToRwDmi>
+    <rwToBorgDmi>ObjectivesOutputTraces</rwToBorgDmi>
+    <mrmConfig></mrmConfig>
+    <numTrace firstTrace="1">0</numTrace>
+    <autoSaveState>true</autoSaveState>
+    <autoSaveFrequency>10</autoSaveFrequency>
+    <autoSaveFile>SearchState.txt</autoSaveFile>
+    <envVarName></envVarName>
+    <doSetEnvVar>false</doSetEnvVar>
+    <envVarValIsSearchDir>true</envVarValIsSearchDir>
+    <envVarValOther></envVarValOther>
+    <checkForRedundantVars>false</checkForRedundantVars>
+    <RWInputList/>
+    <objectiveList/>
+    <metricList/>
+    <constraintList/>
+    <OutputDir>SearchOutput</OutputDir>
+    <timestampOutputDir>true</timestampOutputDir>
+    <decisionVarFile>VariableValues.Borg.txt</decisionVarFile>
+    <allValuesFile>AllValues.txt</allValuesFile>
+    <addHeaderToAllValuesFile>false</addHeaderToAllValuesFile>
+    <borgLogFile>RunTime.txt</borgLogFile>
+    <borgLogFileParsable>RunTime.Parsable.txt</borgLogFileParsable>
+    <borgLogFrequency>10</borgLogFrequency>
+    <riverwareLogDir>RiverWareLogs</riverwareLogDir>
+    <riverwareLogFile>RiverWareLog.%d.txt</riverwareLogFile>
+    <rwInputDmiDir>DataToRiverWare</rwInputDmiDir>
+    <rwOutputDmiDir>DataFromRiverWare</rwOutputDmiDir>
+    <negateMaxObjsInNondomSolsFiles>false</negateMaxObjsInNondomSolsFiles>
+    <outputsFileTransformed>Archive.txt</outputsFileTransformed>
+    <outputsFileRaw>Archive.Borg.txt</outputsFileRaw>
+    <nondomSolsFileCsv>NondominatedSolutions.csv</nondomSolsFileCsv>
+    <nondomSolsFileCsvRowIndexed>true</nondomSolsFileCsvRowIndexed>
+    <nondomSolsFilePlot>NondominatedSolutions.html</nondomSolsFilePlot>
+    <addHeaderToOutputsFiles>false</addHeaderToOutputsFiles>
+    <inputFilesCopyDir>Input Files Copy</inputFilesCopyDir>
+    <copyConfigFile>true</copyConfigFile>
+    <copyModelFile>false</copyModelFile>
+    <copyRclScript>true</copyRclScript>
+    <copyDmiControlFiles>true</copyDmiControlFiles>
+    <sbxRate>1</sbxRate>
+    <sbxDistributionIndex>15</sbxDistributionIndex>
+    <pmDistributionIndex>20</pmDistributionIndex>
+    <deCrossoverRate>0.1</deCrossoverRate>
+    <deStepSize>0.5</deStepSize>
+    <pcxNumParents>10</pcxNumParents>
+    <pcxNumOffspring>2</pcxNumOffspring>
+    <pcxEta>0.1</pcxEta>
+    <pcxZeta>0.1</pcxZeta>
+    <undxNumParents>10</undxNumParents>
+    <undxNumOffspring>2</undxNumOffspring>
+    <undxEta>0.35</undxEta>
+    <undxZeta>0.5</undxZeta>
+    <spxNumParents>10</spxNumParents>
+    <spxNumOffspring>2</spxNumOffspring>
+    <spxEpsilon>3</spxEpsilon>
+    <saveModelEnableByDefault>false</saveModelEnableByDefault>
+    <saveModelPolicy>saveModelNondomSols</saveModelPolicy>
+    <saveModelTiming>saveModelAfterRun</saveModelTiming>
+    <saveModelFolder>SolutionModels</saveModelFolder>
+    <saveModelFile>Solution%s.mdl</saveModelFile>
+</borgRwConfig>
