@@ -5,9 +5,7 @@
 11 months into 8184 hr
 1 year into 8760 hr
 
-However the conversion may not have actually happened properly. I got an error when running the model, and then a Claude Code analysis showed:
-
- onversion never happened.
+However the conversion may not have actually happened properly. I got an error when running the model, and then a Claude Code analysis showed evidence the conversion didn't happen:
 
 Evidence:
 - Current `Eldorado.Public.V1.mdl` still has both original strings, byte-identical to pre-commit version:
@@ -19,3 +17,11 @@ Evidence:
 Also note: @"t + 11" offsets (also in `SetBasinPercentFullSlots`, FOREACH ... @"t" TO @"t + 11", ~line 40389) still timestep-relative — if model now runs hourly, those mean "11 hours", not "11 months". That likely = same error you saw.
 
 So RW 9.6.3 resave preserved ruleset verbatim; no month→hour conversion applied.
+
+Claude may not have been looking for the right thing, though. Saving this until I confirm otherwise.
+
+Then David at CADSWES suggested this:
+
+"In the MRM config, check that it is using the Use Loaded Ruleset. In the ones I looked at, it is trying to load it from a file.
+
+When it loads it from the old file, it hits the same RPL units issue and stops the run. You could either select the other option in the MRM configuration or open and re-save the external ruleset file after converting the units."

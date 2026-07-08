@@ -1,5 +1,5 @@
-# RiverWare_Ruleset 7.2
-# Created 11:20 January 26, 2018
+# RiverWare_Ruleset 9.6.3
+# Created 08:35 July 8, 2026
 # 
 RULESET
 NAME "RBS Ruleset (from model file)";
@@ -30,7 +30,8 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{96f9730d-d6aa-44de-bb0b-2ba70085d649}";;
 
     RULE                 "SetMultiAcccountDivertersReturnFlows";
     DESCRIPTION          "";
@@ -53,9 +54,11 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{b68234f1-47e4-4e1f-b165-c499b9c4e8a1}";;
 
-  END;
+  END
+  UUID "{273ad22c-460f-4e5c-b59d-d3875f49e66b}";;
 
   POLICY_GROUP   "SetPhsyicalValues";
   DESCRIPTION    "";
@@ -75,7 +78,8 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{ef305566-7874-4362-8124-603bbdd55cfc}";;
 
     RULE                 "SetWaterUserDiversions";
     DESCRIPTION          "";
@@ -89,7 +93,8 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{30ea5057-3089-4013-b537-bee18d1bbede}";;
 
     RULE                 "SetAg2PurchasedLeasedReturnFlowOutflow";
     DESCRIPTION          "";
@@ -103,7 +108,8 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{24f50fc5-36d4-47c5-9ecf-b3c7612bf093}";;
 
     RULE                 "SetRes2Ag3ReturnFlowsDiversionSupplies";
     DESCRIPTION          "";
@@ -117,7 +123,8 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{615b6eec-b030-4dac-8c8d-737a503b0311}";;
 
     RULE                 "SetDiversionObjectsDiversions";
     DESCRIPTION          "";
@@ -131,7 +138,8 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{fb28204d-e14b-4abb-abcd-6c7e95c32f7c}";;
 
     RULE                 "SetExternalResOutflow";
     DESCRIPTION          "";
@@ -142,7 +150,8 @@ BEGIN
 
       $ "ExternalRes.Outflow" [] := "SumAcctSlot"( % "ExternalRes", "Outflow", @"t" );
 
-    END;
+    END
+    UUID "{b3aad1df-f375-4894-a99d-06876db48992}";;
 
     RULE                 "SetAllResDiversions";
     DESCRIPTION          "";
@@ -156,9 +165,11 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{5ec5f94c-d080-4fd1-aa48-9e951202f1dc}";;
 
-  END;
+  END
+  UUID "{556f55b4-2431-4f26-8d3c-7d5384dc532d}";;
 
   POLICY_GROUP   "SetEastSlopePhysical";
   DESCRIPTION    "";
@@ -166,7 +177,8 @@ BEGIN
   NOTES          "";
   BEGIN
 
-  END;
+  END
+  UUID "{520ebc54-9784-49d7-b162-523832995c0d}";;
 
   POLICY_GROUP   "SetWholesalerRes2AccountingAndPhysical";
   DESCRIPTION    "";
@@ -183,7 +195,8 @@ BEGIN
 
       $ "WholesalerRes2.Outflow" [] := "SumAcctSlot"( % "WholesalerRes2", "Outflow", @"t" );
 
-    END;
+    END
+    UUID "{23f27c85-0290-443c-a17c-641be3b508cf}";;
 
     RULE                 "SetWholesalerRes2Diversion";
     DESCRIPTION          "";
@@ -194,9 +207,11 @@ BEGIN
 
       $ "WholesalerRes2.Outflow" [] := "SumAcctSlot"( % "WholesalerRes2", "Diversion", @"t" );
 
-    END;
+    END
+    UUID "{2bc3d114-361f-43ee-ae4d-c679069edc90}";;
 
-  END;
+  END
+  UUID "{92bbaf94-1aa1-49e5-b5ff-35566e2b6443}";;
 
   POLICY_GROUP   "SetUtilityDeliveriesFromStorage";
   DESCRIPTION    "";
@@ -213,7 +228,8 @@ BEGIN
 
       $ "UtilityDiv UtilitySingleUseStorage to Utility Reach UtilitySingleUse Div.Supply" [] := $ "UtilityDiv^UtilitySingleUseStorage.Inflow" [];
 
-    END;
+    END
+    UUID "{5b61fdd4-fdac-484f-90ea-4ec12311540a}";;
 
     RULE                 "SetUtilityTotalReusableDeliveryFromStorageSupply";
     DESCRIPTION          "";
@@ -224,9 +240,11 @@ BEGIN
 
       $ "UtilityDiv UtilityReusableStorage to Utility Reach UtilityReusable Div.Supply" [] := $ "UtilityDiv^UtilityReusableStorage.Inflow" [];
 
-    END;
+    END
+    UUID "{78bf72c9-ed5c-45a7-bb1f-74f275b8df70}";;
 
-  END;
+  END
+  UUID "{55e64cc9-9c2b-43fc-8879-fefcaaf793e2}";;
 
   POLICY_GROUP   "ResendDemandToRes1Res2";
   DESCRIPTION    "";
@@ -243,7 +261,8 @@ BEGIN
 
       $ "UtilityData.DemandUnmetRound2" [] := ( $ "UtilityData.DemandDistributedToRes1" [] + $ "UtilityData.DemandDistributedToRes2" [] ) - ( $ "Res1 UtilityReusableStorage to Ag1Div UtilityReusableStorage.Supply" [] + $ "Res1 Res1_1940 to Ag1Div UtilitySingleUseStorage.Supply" [] + $ "Res2 PurchasedAg3_1892 to Res2Outlet UtilityReusableStorage Div.Supply" [] + $ "Res2 Res2_1955 to Res2Outlet UtilitySingleUse Div.Supply" [] + $ "Res2 UtilityTMD_1956 to Res2Outlet UtilityReusableStorage Div.Supply" [] );
 
-    END;
+    END
+    UUID "{0ab830b3-eec0-476c-be7a-28579f8ce6a2}";;
 
     RULE                 "Res2DemandResentTMD";
     DESCRIPTION          "";
@@ -257,7 +276,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{06f40db4-9322-4bf6-af7f-708ea674d442}";;
 
     RULE                 "Res2DemandResent1955";
     DESCRIPTION          "";
@@ -271,7 +291,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{c715ba60-383f-4b40-b000-980f8dc68993}";;
 
     RULE                 "Res2DemandResentAg3";
     DESCRIPTION          "";
@@ -285,7 +306,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{8020437c-051c-42ef-bb20-bb6679c92a64}";;
 
     RULE                 "Res11940Recheck";
     DESCRIPTION          "";
@@ -299,7 +321,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{f6291de6-557e-40b0-a120-8ed7808ff3c0}";;
 
     RULE                 "Res1DemandResent1940";
     DESCRIPTION          "";
@@ -313,7 +336,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{9bfabf9b-1b2b-403b-883a-290a0537913a}";;
 
     RULE                 "Res1ResentDemandReusable";
     DESCRIPTION          "";
@@ -327,7 +351,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{c45bdf28-3237-4f3b-9337-1d720dbadba9}";;
 
     RULE                 "SendUnmetDemandToRes1";
     DESCRIPTION          "";
@@ -338,9 +363,11 @@ BEGIN
 
       $ "UtilityData.DemandResentToRes1" [] := $ "UtilityData.DemandUnmetRound1" [];
 
-    END;
+    END
+    UUID "{0645ce07-e9ba-4fb2-bb3a-dbc0228cd5df}";;
 
-  END;
+  END
+  UUID "{bc103351-c80d-480a-be5a-8580d4d4c4d5}";;
 
   POLICY_GROUP   "SetNonWRSolverUtilityStorageSupplyAccounting";
   DESCRIPTION    "";
@@ -357,7 +384,8 @@ BEGIN
 
       $ "UtilityData.DemandUnmetRound1" [] := $ "UtilityData.DemandNotMetByRes1Round1" [] + $ "UtilityData.DemandNotMetByRes2Round1" [];
 
-    END;
+    END
+    UUID "{a8a53f82-729e-4d2c-98aa-db35a2582a4f}";;
 
     RULE                 "CalculateDemandNotMetByRes1";
     DESCRIPTION          "";
@@ -368,7 +396,8 @@ BEGIN
 
       $ "UtilityData.DemandNotMetByRes1Round1" [] := $ "UtilityData.DemandDistributedToRes1" [] - ( $ "Res1 UtilityReusableStorage to Ag1Div UtilityReusableStorage.Supply" [] + $ "Res1 Res1_1940 to Ag1Div UtilitySingleUseStorage.Supply" [] );
 
-    END;
+    END
+    UUID "{91bf63db-95bb-4458-9c13-775d74d3bb79}";;
 
     RULE                 "Res11940SupplyCheck";
     DESCRIPTION          "";
@@ -382,7 +411,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{f77c4855-8aaf-45dc-a390-e0b02caa00fb}";;
 
     RULE                 "SetRes11940Supply";
     DESCRIPTION          "";
@@ -396,7 +426,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{a1ec547f-f1c4-4cee-a97a-12723135960b}";;
 
     RULE                 "CheckStorageUpdatesForRes1ReusableSupply";
     DESCRIPTION          "";
@@ -410,7 +441,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{f312bb67-c1ba-487f-9da2-c39d750982b8}";;
 
     RULE                 "SetRes1ReusableSupply";
     DESCRIPTION          "";
@@ -424,7 +456,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{2ebfb2af-186d-4281-8c0e-4ce250442f36}";;
 
     RULE                 "CalculateDemandNotMetByRes2";
     DESCRIPTION          "";
@@ -435,7 +468,8 @@ BEGIN
 
       $ "UtilityData.DemandNotMetByRes2Round1" [] := $ "UtilityData.DemandDistributedToRes2" [] - ( $ "Res2 PurchasedAg3_1892 to Res2Outlet UtilityReusableStorage Div.Supply" [] + $ "Res2 Res2_1955 to Res2Outlet UtilitySingleUse Div.Supply" [] + $ "Res2 UtilityTMD_1956 to Res2Outlet UtilityReusableStorage Div.Supply" [] );
 
-    END;
+    END
+    UUID "{c094111e-9eaa-4c7b-8837-6aa047105d19}";;
 
     RULE                 "Res2TMDSupplyCheck";
     DESCRIPTION          "";
@@ -449,7 +483,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{0f334e0e-6177-48cc-923c-443d779a5059}";;
 
     RULE                 "SetRes2TMDSupply";
     DESCRIPTION          "";
@@ -463,7 +498,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{89da62a9-12ff-49b5-8312-373fa4b23391}";;
 
     RULE                 "Res21955SupplyCheck";
     DESCRIPTION          "";
@@ -477,7 +513,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{d3dde06a-adf1-4088-8812-16057b2c4676}";;
 
     RULE                 "SetRes21955Supply";
     DESCRIPTION          "";
@@ -491,7 +528,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{7dcc1ccd-dc45-4795-84f4-9f91e58217b4}";;
 
     RULE                 "Res2PurchasedAg3SupplyCheck";
     DESCRIPTION          "";
@@ -505,7 +543,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{f5e5ccc7-0e64-48cb-80d6-e2ccd5ac0d02}";;
 
     RULE                 "SetRes2PurchasedAg3Supply";
     DESCRIPTION          "";
@@ -519,7 +558,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{0c08e3f4-d107-46cb-a752-1dfd66792ca5}";;
 
     RULE                 "CalculateAllotmentToRes1AndRes2";
     DESCRIPTION          "";
@@ -532,7 +572,8 @@ BEGIN
 
       $ "UtilityData.DemandDistributedToRes1" [] := ( 1.00000000 - $ "UtilityData.PercentRelianceOnRes2" [] ) * ( $ "UtilityData.DemandNotMetByAg2Res" [] / ( 1.00000000 + NaNToZero ( $ "TransitLoss.GainLoss Coefficient" [0.00000000, 0.00000000] ) ) );
 
-    END;
+    END
+    UUID "{5b3a9e29-8c44-45c7-b49c-b9e7cd63a580}";;
 
     RULE                 "CalculateDemandNotMetByAg2Res";
     DESCRIPTION          "";
@@ -543,7 +584,8 @@ BEGIN
 
       $ "UtilityData.DemandNotMetByAg2Res" [] := ( $ "UtilityData.DemandNotMetByWholesaler" [] - ( ( $ "Ag2Res UtilityIfAndWhenExchangedReusable to NorthCreekNorthFork UtilityReusableStorage.Supply" [] + $ "Ag2Res IWSALeasedFromAg2 to NorthCreekNorthFork UtilityReusableStorage.Supply" [] + $ "Ag2Res UtilityAg2Shares to NorthCreekNorthFork UtilityReusableStorage.Supply" [] ) * ( 1.00000000 + NaNToZero ( $ "TransitLoss.GainLoss Coefficient" [0.00000000, 0.00000000] ) ) ) );
 
-    END;
+    END
+    UUID "{0535cc02-1f64-4298-af36-b92fad9dc0d0}";;
 
     RULE                 "Ag2ResUtilitySharesSupplyCheck";
     DESCRIPTION          "";
@@ -557,7 +599,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{a7c039bf-1f3b-4b7e-9209-4cc98fba71cc}";;
 
     RULE                 "SetAg2ResUtilitySharesSupply";
     DESCRIPTION          "";
@@ -571,7 +614,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{8b198936-327b-4dd5-848f-65a998133edc}";;
 
     RULE                 "IWSASupplyCheck";
     DESCRIPTION          "";
@@ -585,7 +629,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{a2ec60fe-69e4-42b9-9573-f2d4fc61c68d}";;
 
     RULE                 "SetAg2ResIWSALeasedSupply";
     DESCRIPTION          "";
@@ -599,7 +644,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{76019d12-2296-46d1-9540-b59b79813cbb}";;
 
     RULE                 "UtilityAg2ResIfAndWhenSupplyCheck";
     DESCRIPTION          "";
@@ -613,7 +659,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{5ebe864b-2cd7-4991-86be-ac15b0d0e0be}";;
 
     RULE                 "SetUtilityAg2ResIfAndWhenReusableSupply";
     DESCRIPTION          "";
@@ -627,7 +674,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{a0ba7c2d-b8e4-43be-a0f1-2234ce0d7fb4}";;
 
     RULE                 "Ag2ResSupplyToAg2Check";
     DESCRIPTION          "";
@@ -641,7 +689,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{ba578afa-9c52-4d0c-ab90-ade6093fa22e}";;
 
     RULE                 "SetAg2ResSupplyToAg2";
     DESCRIPTION          "";
@@ -655,7 +704,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{28364869-8e4c-4752-9e79-8f00a4354bfe}";;
 
     RULE                 "CalculateDemandNotMetByWholesaler";
     DESCRIPTION          "";
@@ -666,7 +716,8 @@ BEGIN
 
       $ "UtilityData.DemandNotMetByWholesaler" [] := "Max"( $ "UtilityData.DemandNotMetByFlowRights" [] - $ "WholesalerToUtilityDiv UtilitySharesSingleUse to Utility Wholesaler UtilityWholesaler Div.Supply" [], 0.00000000 "cfs" );
 
-    END;
+    END
+    UUID "{805f989e-d4d4-4149-8f8e-bdbd04b3cbd6}";;
 
     RULE                 "SetUtilityTotalWholesalerSupplyToUtilityUser";
     DESCRIPTION          "";
@@ -677,7 +728,8 @@ BEGIN
 
       $ "WholesalerToUtilityDiv UtilitySharesSingleUse to Utility Wholesaler UtilityWholesaler Div.Supply" [] := "Max"( $ "WholesalerToUtilityDiv^UtilitySharesSingleUse.Inflow" [], 0.00000000 "cfs" );
 
-    END;
+    END
+    UUID "{85addc5a-e3aa-46ea-8713-a7fc4114e968}";;
 
     RULE                 "UtilityWholesalerSharesSupplyCheck";
     DESCRIPTION          "";
@@ -691,7 +743,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{627b6b4a-bc6f-42f7-b14e-fa8cd73a98a3}";;
 
     RULE                 "SetUtilityWholesalerSharesSupply";
     DESCRIPTION          "";
@@ -705,7 +758,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{cfc4060a-fb48-474b-a9df-c92b0236471d}";;
 
     RULE                 "UtilityWholesalerPooledSupplyCheck";
     DESCRIPTION          "";
@@ -719,7 +773,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{a71a22db-d35e-461a-8417-c5adb2d4ebd2}";;
 
     RULE                 "SetUtilityWholesalerPooledSupply";
     DESCRIPTION          "";
@@ -733,7 +788,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{3fb46d81-e87d-4f67-a6a8-4ff4559dd0ce}";;
 
     RULE                 "SetAccountingSupplyToAg4User";
     DESCRIPTION          "";
@@ -744,7 +800,8 @@ BEGIN
 
       $ "WholesalerToAg4Div WholesalerToAg4 to Ag4 Wholesaler Ag4FromWholesaler Div.Supply" [] := $ "WholesalerRes2 Ag4Shares to WholesalerToUtilityDiv Ag4Shares.Supply" [];
 
-    END;
+    END
+    UUID "{3c4cb240-a6bd-47c8-8bd7-42779a99fcd6}";;
 
     RULE                 "Ag4WholesalerSupplyCheck";
     DESCRIPTION          "";
@@ -758,7 +815,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{e89452bd-e6ce-4e76-8df5-7ce20693a60d}";;
 
     RULE                 "Ag4WholesalerSupply";
     DESCRIPTION          "";
@@ -772,7 +830,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{e2c225a4-5614-4b5f-bbb5-07d3f9c2ab7f}";;
 
     RULE                 "ExternalWholesalerSupplyCheck";
     DESCRIPTION          "";
@@ -786,7 +845,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{53eb81e1-577f-4d91-acdf-90a1d357a384}";;
 
     RULE                 "SetExternalWholesalerUserSupply";
     DESCRIPTION          "";
@@ -800,7 +860,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{749c524f-89f6-4a45-8bc9-b3642add7e3e}";;
 
     RULE                 "CalculateDemandNotMetByFlowRights";
     DESCRIPTION          "";
@@ -811,9 +872,11 @@ BEGIN
 
       $ "UtilityData.DemandNotMetByFlowRights" [] := "VolumeToFlow"( $ "UtilityData.MonthlyConservedAdjustedRestrictedTotalDemand" [], @"t" ) - ( $ "Utility:Reach^Utility_1895.Diversion" [] + $ "Utility:Reach^PurchasedIndustrialRights.Diversion" [] + $ "Utility:Reach^Utility_1908.Diversion" [] + $ "Utility:Reach^Utility_1936.Diversion" [] );
 
-    END;
+    END
+    UUID "{c7ac7751-da8b-4183-8319-769524098687}";;
 
-  END;
+  END
+  UUID "{4f855f0b-3eab-4e7d-84b2-d9461e62881b}";;
 
   POLICY_GROUP   "SetWholesalerRes2Accounting";
   DESCRIPTION    "";
@@ -836,7 +899,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{a13b00c3-450e-4272-adf9-bd064ae85ee7}";;
 
     RULE                 "TransferUtilitySharesToPooled";
     DESCRIPTION          "";
@@ -847,7 +911,8 @@ BEGIN
 
       $ "WholesalerRes2 UtilitySharesSingleUse to WholesalerRes2 Pooled Tran.Supply" [] := "Min"( "Max"( "VolumeToFlow"( $ "WholesalerRes2^UtilitySharesSingleUse.Storage" [@"t - 1"] + $ "WholesalerRes2^UtilitySharesSingleUse.Gain Loss" [@"t - 1"], @"t" ), 0.00000000 "cfs" ), "VolumeToFlow"( 0.20000000 * ( $ "UtilityData.TotalWSShares" [@"t - 1"] * $ "WholesalerData.WholesalerAnnualQuota" [@"t - 1"] ), @"t" ) );
 
-    END;
+    END
+    UUID "{3c83e400-b56e-462b-9fcf-1d98eac353ca}";;
 
     RULE                 "TransferUtilityPooledToExternal";
     DESCRIPTION          "";
@@ -858,9 +923,11 @@ BEGIN
 
       $ "WholesalerRes2 Pooled to WholesalerRes2 ExternalSharesSingleUse Tran.Supply" [] := "Max"( "VolumeToFlow"( $ "WholesalerRes2^Pooled.Storage" [@"t - 1"] + $ "WholesalerRes2^Pooled.Gain Loss" [@"t - 1"], @"t" ), 0.00000000 "cfs" );
 
-    END;
+    END
+    UUID "{c723aaf7-82c7-4a18-af3c-edd165cee9cb}";;
 
-  END;
+  END
+  UUID "{c551efef-6828-428e-b386-dc51b1e6c048}";;
 
   POLICY_GROUP   "UtilityExchanges";
   DESCRIPTION    "";
@@ -877,7 +944,8 @@ BEGIN
 
       $ "ExternalRes BookExchangeRes1SingleUse to ExternalResOutlet AllocatableFlow.Supply" [] := $ "Res1 FromXResPhysical to Res1 UtilityReusableStorage Tran.Supply" [];
 
-    END;
+    END
+    UUID "{433c7b91-4816-4aa2-a4b7-78316c7fb70b}";;
 
     RULE                 "XResToRes1PhysicalExchangeTransferToRes1Reusable";
     DESCRIPTION          "";
@@ -888,7 +956,8 @@ BEGIN
 
       $ "Res1 FromXResPhysical to Res1 UtilityReusableStorage Tran.Supply" [] := $ "Res1 AllocatableFlow to Res1 FromXResPhysical Tran.Supply" [];
 
-    END;
+    END
+    UUID "{02e1a094-df59-42ba-b0b1-c7d58b2fe690}";;
 
     RULE                 "XResToRes1PhysicalExchangeRes1TransferCheck";
     DESCRIPTION          "";
@@ -902,7 +971,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{340a0fa9-368f-4249-b769-ef9b63b6813b}";;
 
     RULE                 "XResToRes1PhysicalExchangeRes1Transfer";
     DESCRIPTION          "";
@@ -916,7 +986,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{e8516477-e0bc-469c-9519-84d7af4cc528}";;
 
     RULE                 "Res1TransferForXResBookExchangeToReusable";
     DESCRIPTION          "";
@@ -927,7 +998,8 @@ BEGIN
 
       $ "Res1 FromXResBook to Res1 UtilityReusableStorage Tran.Supply" [] := $ "ExternalRes ReusableExchangedWater to ExternalRes BookExchangeRes1SingleUse Tran.Supply" [];
 
-    END;
+    END
+    UUID "{0e2e792b-f61d-44ea-a4c5-5f053355d286}";;
 
     RULE                 "Res1TransferFor1940ToXResBookExchange";
     DESCRIPTION          "";
@@ -938,7 +1010,8 @@ BEGIN
 
       $ "Res1 Res1_1940 to Res1 FromXResBook Tran.Supply" [] := $ "ExternalRes ReusableExchangedWater to ExternalRes BookExchangeRes1SingleUse Tran.Supply" [];
 
-    END;
+    END
+    UUID "{722659dd-bfda-4520-913f-52d9cbde8825}";;
 
     RULE                 "XResTransferForRes1BookExchange";
     DESCRIPTION          "";
@@ -952,7 +1025,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{aaf5c60e-2601-4e85-ae6a-3987c5f6f98f}";;
 
     RULE                 "GravelPitTransfer";
     DESCRIPTION          "";
@@ -963,7 +1037,8 @@ BEGIN
 
       $ "GravelPit UtilityReusable to GravelPit ForExchange Tran.Supply" [] := $ "GravelPitDiv UtilityReusable to GravelPitDivObj UtilityReusable Div.Supply" [];
 
-    END;
+    END
+    UUID "{7930f74c-ba31-4f37-9977-d0026401ab7d}";;
 
     RULE                 "GravelPitDiversionFromReachCheck";
     DESCRIPTION          "";
@@ -977,7 +1052,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{6a6e15d4-bc17-4120-9ef0-93e97ca62940}";;
 
     RULE                 "GravelPitDiversionFromReach";
     DESCRIPTION          "";
@@ -991,7 +1067,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{3e59c5e8-9198-458f-941a-6a48678a711e}";;
 
     RULE                 "GravelPitDiversionToReach";
     DESCRIPTION          "";
@@ -1010,7 +1087,8 @@ BEGIN
 
       $ "GravelPit ForExchange to GravelPitOutlet AllocatableFlow Div.Supply" [] := $ "UtilityExchanges.TrackPurchasedIndustrialRFfromGP" [] + $ "UtilityExchanges.TrackGPExchangeToRes1" [] + $ "UtilityExchanges.TrackGPExchangeToAg2Res" [];
 
-    END;
+    END
+    UUID "{93d8ea18-6532-431a-8cd7-804c2722d5e4}";;
 
     RULE                 "Ag2ResFromGravelPitToIfAndWhen";
     DESCRIPTION          "";
@@ -1021,7 +1099,8 @@ BEGIN
 
       $ "Ag2Res FromGravelPit to Ag2Res UtilityIfAndWhenExchangedReusable Tran.Supply" [] := $ "UtilityExchanges.TrackGPExchangeToAg2Res" [];
 
-    END;
+    END
+    UUID "{83a8056d-49c9-4263-9b54-a39c314da5af}";;
 
     RULE                 "RecordGravelPitToAg2Res";
     DESCRIPTION          "";
@@ -1032,7 +1111,8 @@ BEGIN
 
       $ "UtilityExchanges.TrackGPExchangeToAg2Res" [] := $ "Ag2Res AllocatableFlow to Ag2Res FromGravelPit Tran.Supply" [];
 
-    END;
+    END
+    UUID "{9828fbff-ef1f-43a9-a9d3-4f4cbbc6c8cb}";;
 
     RULE                 "GravelPitExchangeToAg2ResCheck";
     DESCRIPTION          "";
@@ -1046,7 +1126,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{54711168-0817-4854-840e-12b3775d1803}";;
 
     RULE                 "GravelPitExchangeToAg2Res";
     DESCRIPTION          "";
@@ -1060,7 +1141,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{82cba7c4-6063-475a-9214-aa9582bd83ce}";;
 
     RULE                 "Res1FromGravelPitToReusable";
     DESCRIPTION          "";
@@ -1071,7 +1153,8 @@ BEGIN
 
       $ "Res1 FromGravelPit to Res1 UtilityReusableStorage Tran.Supply" [] := $ "UtilityExchanges.TrackGPExchangeToRes1" [];
 
-    END;
+    END
+    UUID "{7a5d5f44-e658-44a4-aba5-e7c4edcb7bf7}";;
 
     RULE                 "RecordGravelPitToRes1";
     DESCRIPTION          "";
@@ -1082,7 +1165,8 @@ BEGIN
 
       $ "UtilityExchanges.TrackGPExchangeToRes1" [] := $ "Res1 AllocatableFlow to Res1 FromGravelPit Tran.Supply" [];
 
-    END;
+    END
+    UUID "{a2ca6346-c4f3-4565-8378-2a5193952c7e}";;
 
     RULE                 "GravelPitExchangeToRes1Check";
     DESCRIPTION          "";
@@ -1096,7 +1180,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{70d4b2a5-fd9b-488a-8ffd-54ce4ef8ede0}";;
 
     RULE                 "GravelPitExchangeToRes1";
     DESCRIPTION          "";
@@ -1110,7 +1195,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{f63668a0-8df3-4e34-b804-fbd28d8f9fbf}";;
 
     RULE                 "ExchangeRFtoXResCheck";
     DESCRIPTION          "";
@@ -1124,7 +1210,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{c46b3fe9-6e3a-413f-b75e-92b716813e8f}";;
 
     RULE                 "ExchangeRFtoXRes";
     DESCRIPTION          "";
@@ -1138,7 +1225,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{1c297ee2-39a8-42fd-95a4-18a9011f2a7f}";;
 
     RULE                 "ExchangeRFtoAg2ResIfWhenCheck";
     DESCRIPTION          "";
@@ -1152,7 +1240,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{040186c8-28f2-4460-90f9-a5f213edfc1d}";;
 
     RULE                 "ExchangeRFtoAg2ResIfWhen";
     DESCRIPTION          "";
@@ -1166,7 +1255,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{3a67e8de-d911-4e5f-a407-b29444403cbe}";;
 
     RULE                 "ExchangeRFtoRes1Check";
     DESCRIPTION          "";
@@ -1180,7 +1270,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{312ed532-3352-4592-9e0f-3556f719d978}";;
 
     RULE                 "ExchangeRFtoRes1";
     DESCRIPTION          "";
@@ -1194,9 +1285,11 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{8938501b-9cd3-41ab-8346-2a85d43f1a02}";;
 
-  END;
+  END
+  UUID "{7e63aa9b-38ea-4250-b162-f1043de916f6}";;
 
   POLICY_GROUP   "RulesForPurchasedIndustrialIndustrial";
   DESCRIPTION    "";
@@ -1213,7 +1306,8 @@ BEGIN
 
       $ "UtilityExchanges.TrackPurchasedIndustrialRFfromGP" [] := "Max"( $ "UtilityDiv AllocatableFlow to Utility Reach PurchasedIndustrialRights Div.Supply" [] - $ "Utility:Reach^PurchasedIndustrialRights.Maximum Request" [] * ( 1.00000000 - $ "Industrial.Periodic Fraction" [] ), 0.00000000 "cfs" );
 
-    END;
+    END
+    UUID "{497eece9-c265-4044-bd28-1f36ba9b7032}";;
 
     RULE                 "AdjustPurchasedIndustrialDiversionToAccountForReturnFlows";
     DESCRIPTION          "";
@@ -1230,9 +1324,11 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{9c3a93cd-b1d9-45f8-8ac5-d2ce963641a7}";;
 
-  END;
+  END
+  UUID "{381c7f82-8696-4ea4-9038-ea04b8e10d28}";;
 
   POLICY_GROUP   "SetEastSlopeSupplies";
   DESCRIPTION    "";
@@ -1251,7 +1347,8 @@ BEGIN
 
       $ "Ag2Res IWSALeasedFromAg2 to Ag2Res UtilityAg2ReturnFlows Tran.Supply" [] := $ "Ag2Res Ag2Shares to Ag2Res IWSALeasedFromAg2 Tran.Supply" [] * 0.30000000;
 
-    END;
+    END
+    UUID "{8998157c-df70-4c89-87e1-59a541cad462}";;
 
     RULE                 "Ag2ResTransferFromAg2SharesToUtilityLeased";
     DESCRIPTION          "";
@@ -1268,7 +1365,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{2de7f527-93e1-42be-96ef-224203145a6a}";;
 
     RULE                 "Ag2ResTransferForAg2";
     DESCRIPTION          "";
@@ -1279,7 +1377,8 @@ BEGIN
 
       $ "Ag2Res Ag2Res_1905 to Ag2Res Ag2Shares Tran.Supply" [] := $ "Ag2Res AllocatableFlow to Ag2Res Ag2Res_1905 Tran.Supply" [] * ( $ "Ag2Data.Ag2ResShares" [] / $ "Ag2ResData.TotalAg2ResShares" [] );
 
-    END;
+    END
+    UUID "{381aa12b-5bfa-4c95-a87b-f6950f4fc92e}";;
 
     RULE                 "Ag2ResTransferForUtility";
     DESCRIPTION          "";
@@ -1290,7 +1389,8 @@ BEGIN
 
       $ "Ag2Res Ag2Res_1905 to Ag2Res UtilityAg2Shares Tran.Supply" [] := $ "Ag2Res AllocatableFlow to Ag2Res Ag2Res_1905 Tran.Supply" [] * ( $ "UtilityData.Ag2PurchasedShares" [] / $ "Ag2ResData.TotalAg2ResShares" [] );
 
-    END;
+    END
+    UUID "{537739c7-3776-4aca-87fe-0feaa40eca2e}";;
 
     RULE                 "TransferStoredAg3RightsToReturnFlowAccount";
     DESCRIPTION          "";
@@ -1301,7 +1401,8 @@ BEGIN
 
       $ "Res2 PurchasedAg3_1892 to Res2 PurchasedAg3ReturnFlows Tran.Supply" [] := $ "Res2 Res2TransferAccount to Res2 PurchasedAg3_1892 Tran.Supply" [] * 0.30000000;
 
-    END;
+    END
+    UUID "{953998ef-d5d6-4aa5-b004-cd2341262efe}";;
 
     RULE                 "SetRes2AccountTransfers";
     DESCRIPTION          "";
@@ -1314,9 +1415,11 @@ BEGIN
 
       $ "Res2 Res2TransferAccount to Res2 PurchasedAg3_1892 Tran.Supply" [] := $ "DiversionsToRes2^PurchasedAg3Rights.Diversion" [];
 
-    END;
+    END
+    UUID "{a0430221-02f3-474e-a6c0-fc4dba49b35b}";;
 
-  END;
+  END
+  UUID "{48278a7e-9b00-474c-a1c0-e6b82d017295}";;
 
   POLICY_GROUP   "EastSlopeWaterRightsAllocation";
   DESCRIPTION    "";
@@ -1340,7 +1443,8 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{a377f5bf-4c73-4806-a10b-28501e4a4da6}";;
 
     RULE                 "EastSlopeInitialAllocation";
     DESCRIPTION          "";
@@ -1358,9 +1462,11 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{d7708d33-5a93-4497-b7af-c6a9cc987b0f}";;
 
-  END;
+  END
+  UUID "{d7cf364c-06b0-4aec-89d6-63e66f162499}";;
 
   POLICY_GROUP   "InitializeEastSlope";
   DESCRIPTION    "";
@@ -1377,7 +1483,8 @@ BEGIN
 
       % "Ag2" ~ "Ag2.Initial Request" [] := $ "Ag2Data.DivReqAsFlow" [];
 
-    END;
+    END
+    UUID "{63d087d6-526b-41e6-8bcd-a1f3a684f96e}";;
 
     RULE                 "SetRes2_1955WaterUserInitialRequest";
     DESCRIPTION          "";
@@ -1388,7 +1495,8 @@ BEGIN
 
       $ "DiversionsToRes2^Res2_1955.Initial Request" [] := "Min"( "Max"( "VolumeToFlow"( $ "Res2^Res2_1955.Maximum Accrual" [] - $ "Res2^Res2_1955.Accrual" [@"t - 1"], @"t" ), 0.00000000 "cfs" ), "Max"( $ "Res2.Conservation Pool Initial Empty Space" [] - $ "Res2^UtilityTMD_1956.Inflow" [] - $ "DiversionsToRes2^PurchasedAg3Rights.Diversion" [], 0.00000000 "cfs" ) );
 
-    END;
+    END
+    UUID "{c6af70bf-6503-42bd-819e-05c8f1b99def}";;
 
     RULE                 "SetRes2PurchasedAg3RightsWaterUserInitialRequest";
     DESCRIPTION          "";
@@ -1399,9 +1507,11 @@ BEGIN
 
       $ "DiversionsToRes2^PurchasedAg3Rights.Initial Request" [] := "Min"( $ "UtilityData.PercentageOfAg3Rights" [] * $ "Ag3Data.OriginalWaterRight" [], "Max"( $ "Res2.Conservation Pool Initial Empty Space" [] - $ "Res2^UtilityTMD_1956.Inflow" [], 0.00000000 "cfs" ) );
 
-    END;
+    END
+    UUID "{53af3ac5-e74b-42fc-9ddc-670965600ec1}";;
 
-  END;
+  END
+  UUID "{33e4d2d8-38fd-4a21-b136-1875171f40c9}";;
 
   POLICY_GROUP   "SetWestSlopePhysical";
   DESCRIPTION    "";
@@ -1418,7 +1528,8 @@ BEGIN
 
       $ "WestSlopeRes.Outflow" [] := $ "WestSlopeRes UtilityTMD_1956 to UtilityTMDOutflow UtilityTMD_1956.Supply" [];
 
-    END;
+    END
+    UUID "{3e8a7f60-29dc-45e6-8993-47a84165265c}";;
 
     RULE                 "SetUtilityTMD1Diversion";
     DESCRIPTION          "";
@@ -1429,7 +1540,8 @@ BEGIN
 
       $ "UtilityTMD1.Diversion Request" [] := $ "UtilityTMD1^UtilityTMD_1956.Inflow" [];
 
-    END;
+    END
+    UUID "{fc67f693-89c7-4404-bdad-288642f7027e}";;
 
     RULE                 "SetWholesalerRes1DiversionAndWestToEastDiversionRequest";
     DESCRIPTION          "";
@@ -1442,9 +1554,11 @@ BEGIN
 
       $ "Wholesaler1TMD.Diversion Requested" [] := "SumAcctSlot"( % "WholesalerRes1", "Diversion", @"t" );
 
-    END;
+    END
+    UUID "{e583d4ba-1894-43e6-8a32-ab21041d8d17}";;
 
-  END;
+  END
+  UUID "{ecc01914-9a4b-4b15-a185-87e98066dd0a}";;
 
   POLICY_GROUP   "SetWestSlopeSupplies";
   DESCRIPTION    "";
@@ -1461,7 +1575,8 @@ BEGIN
 
       $ "WestSlopeMunicipalRes WestSlopeMunicipalRes_1919 to WestSlopeMunicipal WestSlopeMunicipal Div.Supply" [] := "Min"( $ "WestSlopeMunicipalData.WaterRight" [], $ "WestSlopeMunicipalRes.Available for Diversion" [] * 0.90000000 );
 
-    END;
+    END
+    UUID "{484be628-95c5-4a56-b952-dc048f42cb62}";;
 
     RULE                 "SetWholesaler1AccountDiversionsSupplies";
     DESCRIPTION          "";
@@ -1476,7 +1591,8 @@ BEGIN
 
       $ "WholesalerRes1 UtilitySharesSingleUse to Wholesaler1TMD UtilitySharesSingleUse Div.Supply" [] := $ "WholesalerRes1 Wholesaler1_1936 to WholesalerRes1 UtilitySharesSingleUse Tran.Supply" [];
 
-    END;
+    END
+    UUID "{29d5acd3-199b-49bd-b21b-6d5a2d45aef8}";;
 
     RULE                 "SetWholesaler1ResTransfers";
     DESCRIPTION          "";
@@ -1491,7 +1607,8 @@ BEGIN
 
       $ "WholesalerRes1 Wholesaler1_1936 to WholesalerRes1 UtilitySharesSingleUse Tran.Supply" [] := "MinItem"( { "VolumeToFlow"( $ "UtilityData.TotalWSShares" [] * $ "WholesalerData.WholesalerAnnualQuota" [], @"t" ) , "Max"( "VolumeToFlow"( $ "WholesalerRes2Data.UtilityStorageAllotment" [] - $ "WholesalerRes2^UtilitySharesSingleUse.Storage" [@"t - 1"], @"t" ), 0.00000000 "cfs" ) , "VolumeToFlow"( ( $ "UtilityData.TotalWSShares" [] / $ "WholesalerRes2Data.TotalWSShares" [] ) * ( $ "WholesalerRes1.Storage" [@"t - 1"] * 0.90000000 ), @"t" ) } );
 
-    END;
+    END
+    UUID "{f0e53825-ebd1-4419-b07d-eb0fcebd07f0}";;
 
     RULE                 "SetWestSlopeResAccountingOutflow";
     DESCRIPTION          "";
@@ -1508,7 +1625,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{be59be26-7880-4359-9195-934b01f1cb63}";;
 
     RULE                 "ZeroWestSlopeResOutflow";
     DESCRIPTION          "";
@@ -1519,9 +1637,11 @@ BEGIN
 
       $ "WestSlopeRes UtilityTMD_1956 to UtilityTMDOutflow UtilityTMD_1956.Supply" [] := 0.00000000 "cfs";
 
-    END;
+    END
+    UUID "{6ab0f45f-78e5-4eed-b041-59bf9aaa0653}";;
 
-  END;
+  END
+  UUID "{e7c2d24a-c4a0-4125-ba2e-4413276b9f02}";;
 
   POLICY_GROUP   "WestSlopeWaterRightsAllocation";
   DESCRIPTION    "";
@@ -1545,7 +1665,8 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{52d879ed-3d99-437a-9fc6-51666648d1d7}";;
 
     RULE                 "WestSlopeInitialAllocation";
     DESCRIPTION          "";
@@ -1563,9 +1684,11 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{4f500a1a-6b02-49cd-8b53-0a447d95687f}";;
 
-  END;
+  END
+  UUID "{f58b5f05-b672-4c5d-8fb7-ef9b91fbada8}";;
 
   POLICY_GROUP   "InitializeUtility";
   DESCRIPTION    "";
@@ -1582,7 +1705,8 @@ BEGIN
 
       $ "UtilityDiv UtilityReusableStorage to Utility Reach UtilityReusable Div.Supply" [] := 0.00000000 "cfs";
 
-    END;
+    END
+    UUID "{f65ac6ff-cdc6-4276-bd62-6cb5920c44bd}";;
 
     RULE                 "SetUtilityReachSingleUseDiversion";
     DESCRIPTION          "";
@@ -1593,7 +1717,8 @@ BEGIN
 
       $ "UtilityDiv UtilitySingleUseStorage to Utility Reach UtilitySingleUse Div.Supply" [] := 0.00000000 "cfs";
 
-    END;
+    END
+    UUID "{6e4c62b0-a1a5-49e9-a3c8-d360ddc69477}";;
 
     RULE                 "LimitIWSAto3in10years";
     DESCRIPTION          "";
@@ -1653,7 +1778,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{4e59944a-3eac-4598-96c3-69444849429f}";;
 
     RULE                 "TriggerIWSA";
     DESCRIPTION          "";
@@ -1714,7 +1840,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{33e1d360-58b6-4f9d-9947-6d3f19a81698}";;
 
     RULE                 "TriggerIWSA1-useToTestIWSAFunctionality";
     DESCRIPTION          "";
@@ -1738,7 +1865,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{e8034f84-d56c-4347-b09f-02111c17cc4e}";;
 
     RULE                 "SetUtiltiyFractionalReturnFlowPhysical";
     DESCRIPTION          "";
@@ -1751,7 +1879,8 @@ BEGIN
 
       $ "Utility:Wholesaler.Fractional Return Flow" [] := ( $ "UtilityData.OutdoorReturnFlowPercent" [] * $ "UtilityData.RestrictedPercentOutdoorUse" [] ) + ( ( 1.00000000 - $ "UtilityData.RestrictedPercentOutdoorUse" [] ) * $ "UtilityData.IndoorReturnFlowPercent" [] );
 
-    END;
+    END
+    UUID "{fdf6f8fd-3d33-483a-987d-a81331404e1c}";;
 
     RULE                 "SetPercentOutdoorUseAfterRestrictionsApplied";
     DESCRIPTION          "";
@@ -1762,7 +1891,8 @@ BEGIN
 
       $ "UtilityData.RestrictedPercentOutdoorUse" [] := $ "UtilityData.MonthlyConservedAdjustedRestrictedOutdoorDemand" [] / $ "UtilityData.MonthlyConservedAdjustedRestrictedTotalDemand" [];
 
-    END;
+    END
+    UUID "{7dae62be-41a6-4918-a2d7-86479394b1fd}";;
 
     RULE                 "SetMonthlyConservedAdjustedRestrictedTotalDemandAfterEfficiency";
     DESCRIPTION          "";
@@ -1775,7 +1905,8 @@ BEGIN
 
       $ "UtilityData.MonthlyConservedAdjustedRestrictedTotalDemandOGEfficiency" [] := ( $ "UtilityData.MonthlyConservedAdjustedRestrictedOutdoorDemand" [] + $ "UtilityData.MonthlyConservedAdjustedRestrictedIndoorDemand" [] ) / 0.90000000;
 
-    END;
+    END
+    UUID "{ddd29274-0d70-4a52-b777-ec8b06d2a811}";;
 
     RULE                 "AlterUtilityDemandBasedOnRestrictions";
     DESCRIPTION          "";
@@ -1812,7 +1943,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{106c4af3-8bc7-4da0-bd05-eda93b1030d9}";;
 
     RULE                 "SetUtilityWeightedRestrictions";
     DESCRIPTION          "";
@@ -1823,7 +1955,8 @@ BEGIN
 
       $ "UtilityData.WeightedRestrictions" [] := "Floor"( ( $ "UtilityData.HydroRestrictionsWeight" [] * $ "UtilityData.HydroRestrictions" [] ) + ( $ "UtilityData.StorageRestrictionsWeight" [] * $ "UtilityData.StorageRestrictions" [] ) + 0.50000000, 1.00000000 ) COMMENTED_BY "add 0.5 to value and take the floor to get same functionality as rounding (only have ceiling and <br>floor in RW)";
 
-    END;
+    END
+    UUID "{f734cd87-b154-48ec-afca-c589d5d4a6d3}";;
 
     RULE                 "SetUtilityHydrologyBasedRestrictions";
     DESCRIPTION          "";
@@ -1834,23 +1967,24 @@ BEGIN
 
       FOREACH (DATETIME date IN @"t" TO @"t + 11") DO
             IF_STATEMENT ($ "UtilityData.HydrologyTriggerLevel" [] == 1.00000000) THEN
-            $ "UtilityData.HydroRestrictions" [date] := "TableLookup"( $ "UtilityData.RestrictionTriggersHydrologyLax", 0.00000000, 1.00000000, $ "WholesalerData.TotalPercentOfHistoricLongtermEastSlopeInflowWaterYearSums" [@"24:00:00 March 31, Current Year"], @"t", TRUE );
+            $ "UtilityData.HydroRestrictions" [date] := "TableLookupDefaultTol"( $ "UtilityData.RestrictionTriggersHydrologyLax", 0.00000000, 1.00000000, $ "WholesalerData.TotalPercentOfHistoricLongtermEastSlopeInflowWaterYearSums" [@"24:00:00 March 31, Current Year"], @"t", TRUE );
 
       END_IF_STATEMENT;
 
             IF_STATEMENT ($ "UtilityData.HydrologyTriggerLevel" [] == 2.00000000) THEN
-            $ "UtilityData.HydroRestrictions" [date] := "TableLookup"( $ "UtilityData.RestrictionTriggersHydrologyNeutral", 0.00000000, 1.00000000, $ "WholesalerData.TotalPercentOfHistoricLongtermEastSlopeInflowWaterYearSums" [@"24:00:00 March 31, Current Year"], @"t", TRUE );
+            $ "UtilityData.HydroRestrictions" [date] := "TableLookupDefaultTol"( $ "UtilityData.RestrictionTriggersHydrologyNeutral", 0.00000000, 1.00000000, $ "WholesalerData.TotalPercentOfHistoricLongtermEastSlopeInflowWaterYearSums" [@"24:00:00 March 31, Current Year"], @"t", TRUE );
 
       END_IF_STATEMENT;
 
             IF_STATEMENT ($ "UtilityData.HydrologyTriggerLevel" [] == 3.00000000) THEN
-            $ "UtilityData.HydroRestrictions" [date] := "TableLookup"( $ "UtilityData.RestrictionTriggersHydrologyConservative", 0.00000000, 1.00000000, $ "WholesalerData.TotalPercentOfHistoricLongtermEastSlopeInflowWaterYearSums" [@"24:00:00 March 31, Current Year"], @"t", TRUE );
+            $ "UtilityData.HydroRestrictions" [date] := "TableLookupDefaultTol"( $ "UtilityData.RestrictionTriggersHydrologyConservative", 0.00000000, 1.00000000, $ "WholesalerData.TotalPercentOfHistoricLongtermEastSlopeInflowWaterYearSums" [@"24:00:00 March 31, Current Year"], @"t", TRUE );
 
       END_IF_STATEMENT;
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{454f6a5a-4bfe-49ee-981b-7f5fa616a3e9}";;
 
     RULE                 "SetUtilityStorageBasedRestrictions";
     DESCRIPTION          "";
@@ -1861,23 +1995,24 @@ BEGIN
 
       FOREACH (DATETIME date IN @"t" TO @"t + 11") DO
             IF_STATEMENT ($ "UtilityData.StorageTriggerLevel" [] == 1.00000000) THEN
-            $ "UtilityData.StorageRestrictions" [date] := "TableLookup"( $ "UtilityData.RestrictionTriggersStorageLax", 0.00000000, 1.00000000, $ "UtilityData.StorageToLongTermAnnualDemand" [@"24:00:00 March 31, Current Year"], @"t", TRUE );
+            $ "UtilityData.StorageRestrictions" [date] := "TableLookupDefaultTol"( $ "UtilityData.RestrictionTriggersStorageLax", 0.00000000, 1.00000000, $ "UtilityData.StorageToLongTermAnnualDemand" [@"24:00:00 March 31, Current Year"], @"t", TRUE );
 
       END_IF_STATEMENT;
 
             IF_STATEMENT ($ "UtilityData.StorageTriggerLevel" [] == 2.00000000) THEN
-            $ "UtilityData.StorageRestrictions" [date] := "TableLookup"( $ "UtilityData.RestrictionTriggersStorageNeutral", 0.00000000, 1.00000000, $ "UtilityData.StorageToLongTermAnnualDemand" [@"24:00:00 March 31, Current Year"], @"t", TRUE );
+            $ "UtilityData.StorageRestrictions" [date] := "TableLookupDefaultTol"( $ "UtilityData.RestrictionTriggersStorageNeutral", 0.00000000, 1.00000000, $ "UtilityData.StorageToLongTermAnnualDemand" [@"24:00:00 March 31, Current Year"], @"t", TRUE );
 
       END_IF_STATEMENT;
 
             IF_STATEMENT ($ "UtilityData.StorageTriggerLevel" [] == 3.00000000) THEN
-            $ "UtilityData.StorageRestrictions" [date] := "TableLookup"( $ "UtilityData.RestrictionTriggersStorageConservative", 0.00000000, 1.00000000, $ "UtilityData.StorageToLongTermAnnualDemand" [@"24:00:00 March 31, Current Year"], @"t", TRUE );
+            $ "UtilityData.StorageRestrictions" [date] := "TableLookupDefaultTol"( $ "UtilityData.RestrictionTriggersStorageConservative", 0.00000000, 1.00000000, $ "UtilityData.StorageToLongTermAnnualDemand" [@"24:00:00 March 31, Current Year"], @"t", TRUE );
 
       END_IF_STATEMENT;
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{15a32a7a-91dc-4dfa-9d3a-b0d3eeb784b1}";;
 
     RULE                 "CalculateCurrentStorageToLongTermAnnualDemand";
     DESCRIPTION          "";
@@ -1888,9 +2023,11 @@ BEGIN
 
       $ "UtilityData.StorageToLongTermAnnualDemand" [] := $ "UtilityData.CurrentUtilityStorage" [] / $ "UtilityData.LongTermAnnualDemand" [];
 
-    END;
+    END
+    UUID "{b7165a6b-0ed9-405b-86a1-8b9288d96927}";;
 
-  END;
+  END
+  UUID "{65df4e19-e3f2-4ec1-bcd5-1d77561a3135}";;
 
   POLICY_GROUP   "InitializeWestSlope";
   DESCRIPTION    "";
@@ -1907,9 +2044,11 @@ BEGIN
 
       $ "WestSlopeRes^UtilityTMD_1956.Initial Request" COMMENTED_BY "The maximum Utility can take is 80 cfs. If WestSlopeRes has no storage capacity, the diversion <br>rate should be limited to how much water can fit in Res2 (so max accrual - previous storage will <br>equal 0 and this term reduces to the amount of water that can fit in Res2). If West SlopeRes <br>does have storage capacity, that will be reflected by the Max Accrual slot and allow the sum of <br>accrual space and Res2 space to increase the opportunity to divert up to 80 cfs even if Res2 <br>can't hold it all. " [] := "Max"( "Min"( "VolumeToFlow"( ( "GetResMaxVolume"( % "Res2" ) - $ "Res2.Storage" [@"t - 1"] ) * 1.00000000, @"t" ) + "VolumeToFlow"( $ "WestSlopeRes^UtilityTMD_1956.Maximum Accrual" [] - $ "WestSlopeRes^UtilityTMD_1956.Storage" [@"t - 1"], @"t" ), 80.00000000 "cfs" ), 0.00000000 "cfs" );
 
-    END;
+    END
+    UUID "{7ab791f5-ef8f-41ef-b866-f37c0b58eebb}";;
 
-  END;
+  END
+  UUID "{37659ed9-283f-4591-8968-9346be0164bb}";;
 
   POLICY_GROUP   "InitializeAll";
   DESCRIPTION    "";
@@ -1950,7 +2089,8 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{9615aaf8-1d70-436c-a49e-6fb51d4315fc}";;
 
     RULE                 "SetOnstreamResInitialRequest";
     DESCRIPTION          "";
@@ -1965,9 +2105,11 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{c165b5f3-026b-49b7-9f90-80379f05c73a}";;
 
-  END;
+  END
+  UUID "{8481c005-0665-4115-a40a-f6ad36dd4753}";;
 
   POLICY_GROUP   "SetWholesalerQuota";
   DESCRIPTION    "";
@@ -1999,7 +2141,8 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{224cbba2-f965-42b0-b405-fc169537ca41}";;
 
     RULE                 "SetBasinPercentFullSlots";
     DESCRIPTION          "";
@@ -2023,9 +2166,11 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{ee1d3e1c-ca17-42f0-bbfc-eedaba2b01b9}";;
 
-  END;
+  END
+  UUID "{b8069e87-bfb7-496d-a758-d698b32fbc52}";;
 
   POLICY_GROUP   "SetUtilityWRSolverAccountingInitialRequets";
   DESCRIPTION    "";
@@ -2042,7 +2187,8 @@ BEGIN
 
       $ "Utility:Reach^Utility_1936.Initial Request" [] := "Min"( "Max"( ( "VolumeToFlow"( $ "UtilityData.MonthlyConservedAdjustedRestrictedTotalDemand" [], @"t" ) - ( $ "Utility:Reach^PurchasedIndustrialRights.Initial Request" [] + $ "Utility:Reach^Utility_1895.Initial Request" [] + $ "Utility:Reach^Utility_1908.Initial Request" [] ) ), 0.00000000 "cfs" ), $ "Utility:Reach^Utility_1936.Maximum Request" [] );
 
-    END;
+    END
+    UUID "{85ce9c58-79ae-45ee-87ec-618c38c04702}";;
 
     RULE                 "SetUtility1908InitialRequest";
     DESCRIPTION          "";
@@ -2053,7 +2199,8 @@ BEGIN
 
       $ "Utility:Reach^Utility_1908.Initial Request" [] := "Min"( "Max"( ( "VolumeToFlow"( $ "UtilityData.MonthlyConservedAdjustedRestrictedTotalDemand" [], @"t" ) - ( $ "Utility:Reach^PurchasedIndustrialRights.Initial Request" [] + $ "Utility:Reach^Utility_1895.Initial Request" [] ) ), 0.00000000 "cfs" ), $ "Utility:Reach^Utility_1908.Maximum Request" [] );
 
-    END;
+    END
+    UUID "{baae82a5-a0b7-4160-aa69-7940c61ab013}";;
 
     RULE                 "SetUtilityIndustrialInitialRequest";
     DESCRIPTION          "";
@@ -2064,7 +2211,8 @@ BEGIN
 
       $ "Utility:Reach^PurchasedIndustrialRights.Initial Request" [] := "Min"( "Max"( ( "VolumeToFlow"( $ "UtilityData.MonthlyConservedAdjustedRestrictedTotalDemand" [], @"t" ) - $ "Utility:Reach^Utility_1895.Initial Request" [] ), 0.00000000 "cfs" ), $ "Utility:Reach^PurchasedIndustrialRights.Maximum Request" [] );
 
-    END;
+    END
+    UUID "{faa7bb1b-bede-4687-a9aa-8389e9692c07}";;
 
     RULE                 "SetUtility1895InitialRequest";
     DESCRIPTION          "";
@@ -2075,9 +2223,11 @@ BEGIN
 
       $ "Utility:Reach^Utility_1895.Initial Request" [] := "Min"( "VolumeToFlow"( $ "UtilityData.MonthlyConservedAdjustedRestrictedTotalDemand" [], @"t" ), $ "Utility:Reach^Utility_1895.Maximum Request" [] );
 
-    END;
+    END
+    UUID "{2b79110a-f50a-4878-8e1a-bafb365a3b95}";;
 
-  END;
+  END
+  UUID "{2e8c9a11-49ed-487a-96ee-007c2702b6d4}";;
 
   POLICY_GROUP   "AdjustUtilityDemandForDryAvgWet";
   DESCRIPTION    "";
@@ -2097,7 +2247,8 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{3762874d-d3b7-4243-b924-5abe42f19a0e}";;
 
     RULE                 "SetConservedAdjustedIndoorOutdoorDemand";
     DESCRIPTION          "";
@@ -2113,7 +2264,8 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{7904489c-0dc4-4a50-98b6-bde483f8da5e}";;
 
     RULE                 "CalculateMonthlyConservedAdjustedDemandAF";
     DESCRIPTION          "";
@@ -2124,8 +2276,8 @@ BEGIN
 
       FOREACH (DATETIME date IN @"Start Timestep" TO @"Finish Timestep") DO
             IF_STATEMENT (date == "CompletePartialDate"( @"October 31", date )) THEN
-            FOREACH (DATETIME date1 IN date TO date + 11.00000000 "month") DO
-            $ "UtilityData.MoistureAdjustedConservedAFperMonth" [date1] := $ "UtilityData.MoistureAdjustedConservedAFperYear" ["NextDate"( date + 1.00000000 "year", @"December 31" )] * $ "UtilityData.MonthlyDemandProportions" [date1];
+            FOREACH (DATETIME date1 IN date TO date + 8184.00000000 "hr") DO
+            $ "UtilityData.MoistureAdjustedConservedAFperMonth" [date1] := $ "UtilityData.MoistureAdjustedConservedAFperYear" ["NextDate"( date + 8760.00000000 "hr", @"December 31" )] * $ "UtilityData.MonthlyDemandProportions" [date1];
 
       ENDFOREACH;
 
@@ -2133,7 +2285,8 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{387f0359-a94e-4b03-a525-3b8df57646f4}";;
 
     RULE                 "CalculateMoistureAdjustedConservedAFperYear";
     DESCRIPTION          "";
@@ -2144,13 +2297,14 @@ BEGIN
 
       FOREACH (DATETIME date IN @"Start Timestep" TO @"Finish Timestep") DO
             IF_STATEMENT (date == "CompletePartialDate"( @"December 31", date )) THEN
-            $ "UtilityData.MoistureAdjustedConservedAFperYear" ["NextDate"( date + 1.00000000 "year", @"December 31" )] := $ "UtilityData.MoistureAdjustedConservedGPCD" [date] * $ "UtilityData.OriginalPopulation" [] * $ "UtilityData.BuildoutPopIncreaseFactor" [] * 365.00000000 COMMENTED_BY "not that big of a deal to approximate 365 days in every year";
+            $ "UtilityData.MoistureAdjustedConservedAFperYear" ["NextDate"( date + 8760.00000000 "hr", @"December 31" )] := $ "UtilityData.MoistureAdjustedConservedGPCD" [date] * $ "UtilityData.OriginalPopulation" [] * $ "UtilityData.BuildoutPopIncreaseFactor" [] * 365.00000000 COMMENTED_BY "not that big of a deal to approximate 365 days in every year";
 
       END_IF_STATEMENT;
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{c1c97972-041b-4ce5-86ac-e386219fdd94}";;
 
     RULE                 "CalculateMonthlyUtilityMoistureAdjustedConservedGPCD";
     DESCRIPTION          "";
@@ -2180,9 +2334,11 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{1c605377-51ac-480e-8631-81b2d9740b09}";;
 
-  END;
+  END
+  UUID "{8a9f2f82-6dcd-4f84-a599-e367a93ab3e5}";;
 
   POLICY_GROUP   "AdjustNonUtilityDemandForDryAvgWet";
   DESCRIPTION    "";
@@ -2263,7 +2419,8 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{120cbfad-b5f0-41d9-948d-dd4b078d823f}";;
 
     RULE                 "AdjustWestSlopeUserDemand";
     DESCRIPTION          "";
@@ -2302,9 +2459,11 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{56b2b5c5-dccd-473f-85e8-ae7db14a568c}";;
 
-  END;
+  END
+  UUID "{c375568f-cfda-4385-8bce-db75a29f44a1}";;
 
   POLICY_GROUP   "DecisionLevers";
   DESCRIPTION    "";
@@ -2325,7 +2484,8 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{08dcc3b4-7c60-42c7-9b4c-6b938c4643ae}";;
 
     RULE                 "AdjustAg3WaterRight";
     DESCRIPTION          "";
@@ -2339,7 +2499,8 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{295ad79d-a97a-4f18-b3c4-38bfb28c4796}";;
 
     RULE                 "SetPurchasedIndustrialRightsAmountAndAdjustIndustrialWaterRight";
     DESCRIPTION          "";
@@ -2355,7 +2516,8 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{f9c71b81-efe1-4c90-910c-075e903f83d3}";;
 
     RULE                 "SetWholesalerRes2StorageAllotments";
     DESCRIPTION          "";
@@ -2373,7 +2535,8 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{7e6719d1-6775-431c-b90e-9b457128b6e8}";;
 
     RULE                 "SetUtilityWholesalerShares";
     DESCRIPTION          "";
@@ -2389,9 +2552,11 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{3a260ec4-59e2-4c64-b55f-dceedf38fd18}";;
 
-  END;
+  END
+  UUID "{a0c77ab8-805a-4fc0-ab6a-487e19361d49}";;
 
   POLICY_GROUP   "ReservoirGainLossEvap";
   DESCRIPTION    "";
@@ -2441,7 +2606,8 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{f23bb1ab-6274-48ec-84a8-ff9c618ed4be}";;
 
     RULE                 "AllResGainLossStorageRes2";
     DESCRIPTION          "";
@@ -2482,7 +2648,8 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{c4123d76-6412-4dc2-9ba5-1e3800431a37}";;
 
     RULE                 "AllResGainLossStorage";
     DESCRIPTION          "";
@@ -2523,7 +2690,8 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{10b0dda3-77ca-4325-b166-0c657f5d1bde}";;
 
     RULE                 "AllResGainLossPassthrough";
     DESCRIPTION          "";
@@ -2540,9 +2708,11 @@ BEGIN
 
       ENDFOREACH;
 
-    END;
+    END
+    UUID "{e1cd0a60-236a-4d52-866d-f685da2e92d4}";;
 
-  END;
+  END
+  UUID "{b15fc88d-9ec5-4012-84f2-84153cd5d822}";;
 
   POLICY_GROUP   "WestSlopeResStorage";
   DESCRIPTION    "";
@@ -2564,9 +2734,11 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{0a50fd4d-ef36-4154-82b5-36ad95f638a7}";;
 
-  END;
+  END
+  UUID "{d20be1cd-f9de-4d9a-bd17-421bb7744e92}";;
 
   POLICY_GROUP   "Ag2ResStorage";
   DESCRIPTION    "";
@@ -2597,9 +2769,11 @@ BEGIN
 
       END_IF_STATEMENT;
 
-    END;
+    END
+    UUID "{7120fd7c-d681-4949-8b0d-21dbb9a8b028}";;
 
-  END;
+  END
+  UUID "{2da40c45-4128-4b1e-a1fa-f8f8c763a093}";;
 
   UTILITY_GROUP "Utility Group 1";
   DESCRIPTION   "";
@@ -2619,7 +2793,8 @@ BEGIN
 
       "GetObject"( obj CONCAT "Data" );
 
-    END;
+    END
+    UUID "{75fc32de-6ea4-45c4-9197-7bf7b6d1ea97}";;
 
     FUNCTION       "GetInitialRequestSlot" ( OBJECT obj, STRING WaterType )
     RETURN_TYPE    SLOT;
@@ -2633,7 +2808,8 @@ BEGIN
 
       obj ~ ( ( GET @INDEX 0.00000000 FROM "AccountNamesByWaterType"( obj, WaterType ) ) CONCAT ".Initial Request" );
 
-    END;
+    END
+    UUID "{ec4d55af-cb48-4140-a428-7746addd023f}";;
 
     FUNCTION       "GetShortageSlot" ( OBJECT obj, STRING WaterType )
     RETURN_TYPE    SLOT;
@@ -2647,7 +2823,8 @@ BEGIN
 
       obj ~ ( ( GET @INDEX 0.00000000 FROM "AccountNamesByWaterType"( obj, WaterType ) ) CONCAT ".Shortage" );
 
-    END;
+    END
+    UUID "{605878bc-0291-4cfd-ae1c-8eb47a23a9e5}";;
 
     FUNCTION       "SumAcctSlot" ( OBJECT obj, STRING slot, DATETIME date )
     RETURN_TYPE    NUMERIC;
@@ -2663,7 +2840,8 @@ BEGIN
   NaNToZero ( obj ~ ( acct CONCAT ( "." CONCAT slot ) ) [date] )
  ENDFOR;
 
-    END;
+    END
+    UUID "{defb2d38-e4e7-4632-9f88-6a0e440da39c}";;
 
     FUNCTION       "AccrualToReachTopOfConservationPool" ( OBJECT res )
     RETURN_TYPE    NUMERIC;
@@ -2677,7 +2855,8 @@ BEGIN
 
       "ElevationToStorage"( res, res & "Operating Level Table" [@"t", res & "Top of Conservation Pool" []] ) - res & "Storage" [@"t - 1"];
 
-    END;
+    END
+    UUID "{55fe647d-0592-494b-9ccd-e66b37d6c295}";;
 
     FUNCTION       "GetResMaxVolume" ( OBJECT res )
     RETURN_TYPE    NUMERIC;
@@ -2691,8 +2870,11 @@ BEGIN
 
       res CONCAT ".Elevation Volume Table" ["NumRows"( res & "Elevation Volume Table" ) - 1.00000000, 1.00000000];
 
-    END;
+    END
+    UUID "{1369ff0e-5538-4048-b23d-34c47598ba25}";;
 
-  END;
+  END
+  UUID "{cfe02a88-3fe9-4fd7-aca5-03d04dd2b9fc}";;
 
 END
+UUID "{b550d9e3-2ea6-4f84-a1f2-480adc911848}";
