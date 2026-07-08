@@ -24,7 +24,59 @@
     <envVarValIsSearchDir>true</envVarValIsSearchDir>
     <envVarValOther></envVarValOther>
     <checkForRedundantVars>false</checkForRedundantVars>
-    <RWInputList/>
+    <RWInputList>
+        <rwInput>
+            <type>Scalar</type>
+            <name>Additional Wholesaler Shares</name>
+            <slotName>UtilityData.SupplementalWSShares</slotName>
+            <slotColLabel></slotColLabel>
+            <file>UtilityData.SupplementalWSShares.txt</file>
+            <limits lower="nan" upper="nan"/>
+            <rows first="nan" last="nan"/>
+            <delta>0</delta>
+            <nanRows>0</nanRows>
+            <roundingIncrement>0</roundingIncrement>
+            <variableList>
+                <variable>
+                    <limits lower="0" upper="1"/>
+                </variable>
+            </variableList>
+        </rwInput>
+        <rwInput>
+            <type>Scalar</type>
+            <name>Percentage of Ag3 Rights purchased by Utility</name>
+            <slotName>UtilityData.PercentageOfAg3Rights</slotName>
+            <slotColLabel></slotColLabel>
+            <file>UtilityData.PercentageOfAg3Rights.txt</file>
+            <limits lower="nan" upper="nan"/>
+            <rows first="nan" last="nan"/>
+            <delta>0</delta>
+            <nanRows>0</nanRows>
+            <roundingIncrement>0</roundingIncrement>
+            <variableList>
+                <variable>
+                    <limits lower="0" upper="1"/>
+                </variable>
+            </variableList>
+        </rwInput>
+        <rwInput>
+            <type>Scalar</type>
+            <name>ConservationFactor</name>
+            <slotName>UtilityData.ConservationFactor</slotName>
+            <slotColLabel></slotColLabel>
+            <file>UtilityData.ConservationFactor.txt</file>
+            <limits lower="nan" upper="nan"/>
+            <rows first="nan" last="nan"/>
+            <delta>0</delta>
+            <nanRows>0</nanRows>
+            <roundingIncrement>0</roundingIncrement>
+            <variableList>
+                <variable>
+                    <limits lower="0" upper="1"/>
+                </variable>
+            </variableList>
+        </rwInput>
+    </RWInputList>
     <objectiveList/>
     <metricList/>
     <constraintList/>

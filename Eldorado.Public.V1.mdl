@@ -1,5 +1,5 @@
 # RiverWare_Model 9.6.3
-# Created 08:46 July 8, 2026
+# Created 08:54 July 8, 2026
 # CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
 # 
 # The catalog command is parsed by RiverWare and RiverSMART:
@@ -110,7 +110,7 @@ ModelAccountCount  137
 ModelSupplyCount   173
 ModelExchangeCount 0
 DST 0
-$ws.Model.FileInfo saveInfo 1 {josep} {07-08-2026 08:46:31} {RiverWare 9.6.3} 
+$ws.Model.FileInfo saveInfo 1 {josep} {07-08-2026 08:54:03} {RiverWare 9.6.3} 
 $ws.Model.FileInfo comment {}
 $ws.Model.RunHistoryParam MaxModelRunHistoryRecs 1
 $ws.Model.RunHistoryRecord 1 0 {RiverWare 7.1} {rebeccasmith} \
