@@ -1,5 +1,5 @@
 # RiverWare_Model 9.6.3
-# Created 07:42 July 8, 2026
+# Created 07:44 July 8, 2026
 # CADSWES, University of Colorado at Boulder, http://cadswes.colorado.edu/
 # 
 # The catalog command is parsed by RiverWare and RiverSMART:
@@ -16,26 +16,31 @@ Catalog {\
     <descriptorList></descriptorList>\
     <NetCDF></NetCDF>\
     <CSV></CSV>\
+    <RDF></RDF>\
    </mrmCfg>\
    <mrmCfg name="Optimization 10 4C Traces" numTrace="10" traceMode="Traces"><ptoDmi name="ObjectivesOutputTraces" type="traceDmi"></ptoDmi>\
     <descriptorList></descriptorList>\
     <NetCDF></NetCDF>\
     <CSV></CSV>\
+    <RDF></RDF>\
    </mrmCfg>\
    <mrmCfg name="Optimization 10 1C Traces" numTrace="10" traceMode="Traces"><ptoDmi name="ObjectivesOutputTraces" type="traceDmi"></ptoDmi>\
     <descriptorList></descriptorList>\
     <NetCDF></NetCDF>\
     <CSV></CSV>\
+    <RDF></RDF>\
    </mrmCfg>\
    <mrmCfg name="Optimization 10 HistoricPlus Traces" numTrace="10" traceMode="Traces"><ptoDmi name="ObjectivesOutputTraces" type="traceDmi"></ptoDmi>\
     <descriptorList></descriptorList>\
     <NetCDF></NetCDF>\
     <CSV></CSV>\
+    <RDF></RDF>\
    </mrmCfg>\
    <mrmCfg name="Optimization 10 Varied Traces" numTrace="10" traceMode="Traces"><ptoDmi name="ObjectivesOutputTraces" type="traceDmi"></ptoDmi>\
     <descriptorList></descriptorList>\
     <NetCDF></NetCDF>\
     <CSV></CSV>\
+    <RDF></RDF>\
    </mrmCfg>\
    <mrmCfg name="ResilienceOutput" numTrace="10" traceMode="Traces"><descriptorList></descriptorList>\
     <NetCDF></NetCDF>\
@@ -45,6 +50,7 @@ Catalog {\
     <descriptorList></descriptorList>\
     <NetCDF></NetCDF>\
     <CSV></CSV>\
+    <RDF></RDF>\
    </mrmCfg>\
   </mrmCfgList>\
  </MRMControl>\
@@ -104,7 +110,7 @@ ModelAccountCount  137
 ModelSupplyCount   173
 ModelExchangeCount 0
 DST 0
-$ws.Model.FileInfo saveInfo 1 {josep} {07-08-2026 07:42:55} {RiverWare 9.6.3} 
+$ws.Model.FileInfo saveInfo 1 {josep} {07-08-2026 07:44:49} {RiverWare 9.6.3} 
 $ws.Model.FileInfo comment {}
 $ws.Model.RunHistoryParam MaxModelRunHistoryRecs 1
 $ws.Model.RunHistoryRecord 1 0 {RiverWare 7.1} {rebeccasmith} \
