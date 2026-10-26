@@ -1,0 +1,3 @@
+# Run artifacts (placeholder.txt files already tracked to keep dirs)
+MRMlog/*
+output/Trace*/*
